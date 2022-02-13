@@ -19,3 +19,6 @@ cobra_test
 
 public/scoop.png
 /public/assets/*
+
+# JetBrains IDE files
+.idea/
