@@ -81,6 +81,7 @@ jobs:
     if: github.event_name == 'push'
     env:
       DOCKER_IMAGE_URL: registry.digitalocean.com/nisei-cloud-dev/cobra:latest
+      CLUSTER_NAME: nisei-cloud-dev
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -91,7 +92,7 @@ jobs:
       - name: Login to DigitalOcean Docker registry
         run: doctl registry login
       - name: Save DigitalOcean kubeconfig
-        run: doctl kubernetes cluster kubeconfig save nisei-cloud-dev
+        run: doctl kubernetes cluster kubeconfig save $CLUSTER_NAME
       - name: Build image
         run: docker build . --tag $DOCKER_IMAGE_URL
       - name: Push image to registry
