@@ -1,0 +1,10 @@
+config:
+  cobra:cobra_domain:
+    secure: AAABANTUp0+bD76sCKq3Sp7DteCSwB8dGKrIgvNdv67MPRfWgS6ZYPxRyHnV+vzRGuq7qFZV
+  cobra:configure_cobra: "true"
+  cobra:nisei_domain:
+    secure: AAABAL25qpAL/Crw2T+Y8W55rB5RfVRoYlx4ibfbeVfged6QLCy8Gmb68C+gdeYk2eDvppact5uX0JVt
+  cobra:nrdb_client:
+    secure: AAABALTIG9yFlaPbOtakBztMkyq5owHb8mjp5eeb7eDGEjUTAEXtvaw7GIA06uhpvGdHjQuNd5aGVvf9ssUKXfk1f0GqkOkD3jkCvV9a7JdIVd0jEQ==
+  cobra:nrdb_secret:
+    secure: AAABALwHlT2bU6/zQAPJ+y5/FLtUfPn5avohDgHgznqr2vHe5dwlqu012VJTdgx2vBxuKBKpW6UkJBe22kddXUJnMywsssWCpOMraMRStPeZbA==
