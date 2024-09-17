@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {Player} from "./PairingsData";
-    import Identity from "../identities/Identity.svelte";
+    import Identity from "../widgets/identities/Identity.svelte";
     import {showIdentities} from "./ShowIdentities"
 
     export let player: Player;

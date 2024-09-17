@@ -1,4 +1,4 @@
-import type {Identity} from "../identities/Identity";
+import type {Identity} from "../widgets/identities/Identity";
 
 declare namespace Routes {
     function pairings_data_tournament_rounds_path(tournamentId: string): string;
