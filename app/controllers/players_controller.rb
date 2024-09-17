@@ -12,6 +12,35 @@ class PlayersController < ApplicationController
     @dropped = @tournament.players.dropped.sort_by { |p| p.name.downcase || '' }
   end
 
+  def svelte
+    authorize @tournament, :update?
+  end
+
+  def edit_data
+    authorize @tournament, :update?
+
+    render json: {
+      tournament: {
+        self_registration: @tournament.self_registration?,
+        registration_closed: @tournament.registration_closed?,
+        nrdb_deck_registration: @tournament.nrdb_deck_registration?,
+        swiss_deck_visibility: @tournament.swiss_deck_visibility,
+        cut_deck_visibility: @tournament.cut_deck_visibility,
+        allow_streaming_opt_out: @tournament.allow_streaming_opt_out?
+      },
+      players: @tournament.players.map do |player|
+        {
+          name: player.name,
+          pronouns: player.pronouns,
+          corp_identity: player.corp_identity,
+          runner_identity: player.runner_identity,
+          first_round_bye: player.first_round_bye?,
+          fixed_table_number: player.fixed_table_number
+        }
+      end
+    }
+  end
+
   def download_decks
     authorize @tournament, :update?
     render json: @tournament.players

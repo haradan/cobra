@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :tournaments do
     resources :players, only: %i[index new create update destroy] do
+      get :edit_data, on: :collection
+      get :svelte, on: :collection
       get :standings, on: :collection
       get :standings_data, on: :collection
       get :meeting, on: :collection
