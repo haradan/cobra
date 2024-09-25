@@ -3,6 +3,7 @@
     import type {PlayersData} from "./PlayersData";
     import {loadPlayers} from "./PlayersData";
     import FontAwesomeIcon from "../widgets/FontAwesomeIcon.svelte";
+    import RegisterNewPlayerForm from "./RegisterNewPlayerForm.svelte";
 
     export let tournamentId: string;
     let data: PlayersData;
@@ -14,14 +15,12 @@
 
 <p>
     <a href="/tournaments/{tournamentId}/players/meeting" class="btn btn-primary">
-        <FontAwesomeIcon icon="list-ul"/>
+        <FontAwesomeIcon icon="list"/>
         Player meeting
     </a>
 </p>
 
-<div class="alert alert-secondary mt-4">
-    <h5 class="mb-3">Register New Player</h5>
-</div>
+<RegisterNewPlayerForm tournamentId="{tournamentId}"/>
 
 {#if data}
 {:else}
