@@ -35,8 +35,7 @@ module PairingStrategies
           end
           # Don't set a side for byes.
           unless tp.bye?
-            # TODO(plural): Make some better enums available.
-            p.side = tp.player1_side == 'corp' ? 1 : 2
+            tp.player1_side == 'corp' ? p.player1_is_corp! : p.player1_is_runner!
           end
 
           p.save
