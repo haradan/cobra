@@ -28,8 +28,8 @@ module PairingStrategies
       [big_num_if_nil(player1), big_num_if_nil(player2)].min
     end
 
-    def combined_points
-      (player1.nil? ? 0 : player1.points) + (player2.nil? ? 0 : player2.points)
+    def players
+      [player1, player2].reject(&:nil?)
     end
 
     private
