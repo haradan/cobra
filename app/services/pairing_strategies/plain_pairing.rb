@@ -19,26 +19,15 @@ module PairingStrategies
     end
 
     def fixed_table_number?
-      (!player1.nil? && player1.fixed_table_number) or (!player2.nil? && player2.fixed_table_number)
+      players.any?(&:fixed_table_number?)
     end
 
     def fixed_table_number
-      return nil unless fixed_table_number?
-
-      [big_num_if_nil(player1), big_num_if_nil(player2)].min
+      players.filter(&:fixed_table_number?).map(&:fixed_table_number).min
     end
 
     def players
       [player1, player2].reject(&:nil?)
-    end
-
-    private
-
-    # Use a Very Large Number if the player is nil to aid picking the lowest (numerical) table number for fixed tables.
-    def big_num_if_nil(player)
-      return 999_999 if player.nil? || player&.fixed_table_number.nil?
-
-      player.fixed_table_number
     end
   end
 end
